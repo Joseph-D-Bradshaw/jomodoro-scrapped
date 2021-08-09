@@ -1,0 +1,5 @@
+<div class="card" [ngStyle]="{'background': profile.color}">
+  <h1 class="card--title">{{profile.name}}</h1>
+  <h2 class="card--time">{{profile.time}}</h2>
+  <a class="card--link" (click)="vibrate()" href="#">Start</a>
+</div>

@@ -1,0 +1,43 @@
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+#chosen {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 2px 5px rgba(255,255,255,0.1);
+    margin-bottom: 2rem;
+}
+
+#profilesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+.add--icon {
+    text-decoration: none;
+    display: inline-block;
+    font-size: 4rem;
+    line-height: 4rem;
+    color: #0E1C36;
+}
+
+.add--icon:hover {
+    color: #5f83c2;
+}
+
+.add--icon::before {
+    content: "+";
+}
+
+.card.card--chosen {
+    width: 100%;
+}

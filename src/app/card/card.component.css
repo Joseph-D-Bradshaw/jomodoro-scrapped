@@ -1,0 +1,33 @@
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 15rem;
+    background: #0E1C36;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.card--title {
+    color: #fff;
+    font-weight: 700;
+    width: 100%;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.card--time {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.card--link {
+    text-decoration: none;
+    background: #6B8F71;
+    color: #fff;
+    width: 100%;
+    padding: 0.3rem 1rem;
+}

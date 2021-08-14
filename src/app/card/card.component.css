@@ -24,10 +24,17 @@
     font-size: 2rem;
 }
 
-.card--link {
-    text-decoration: none;
+.card--button {
     background: #6B8F71;
+    cursor: pointer;
     color: #fff;
+    border: 0;
     width: 100%;
     padding: 0.3rem 1rem;
+    transition: all 550ms;
+}
+
+.card--button:hover {
+    background: #50b9c0;
+    transition: all 550ms;
 }

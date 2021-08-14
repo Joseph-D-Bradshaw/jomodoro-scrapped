@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PomodoroProfile } from 'src/interfaces/PomodoroProfile';
 
 @Component({
@@ -8,6 +8,7 @@ import { PomodoroProfile } from 'src/interfaces/PomodoroProfile';
 })
 export class CardComponent implements OnInit {
   @Input() profile!: PomodoroProfile;
+  @Output() choseProfileEvent = new EventEmitter<PomodoroProfile>();
 
   constructor() { }
 
@@ -15,10 +16,8 @@ export class CardComponent implements OnInit {
 
   }
 
-  vibrate() {
-    navigator.vibrate(200);
-  }
-
-
+  propagateProfile() {
+    this.choseProfileEvent.emit(this.profile);
+  } 
 
 }

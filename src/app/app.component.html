@@ -2,13 +2,20 @@
   <app-nav></app-nav>
   <div id="chosen">
     <h1>Chosen Jomodoro</h1>
-    <app-card [profile]="{name:'Work', color:'#0E1C36', time:12, selected:true}"></app-card>
+    <div>
+      <h2>{{ chosenProfile.name }}</h2>
+      <h1>{{ displayedTime }}</h1>
+    </div>
+    <button (click)="toggleTimer()">{{ timerOn ? 'Stop' : 'Start' }}</button>
   </div>
 
   <hr>
 
-  <div id="profilesContainer">
-    <app-card *ngFor="let profile of pomodoroProfiles" [profile]="profile"></app-card>
+  <div *ngIf="!timerOn" id="profilesContainer">
+    <app-card *ngFor="let profile of pomodoroProfiles"
+              (choseProfileEvent)="setProfile($event)"
+              [profile]="profile">
+    </app-card>
     <div class="add">
       <a class="add--icon" (click)="addProfile()"></a>
       <h2>Another?</h2>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { PomodoroProfile } from 'src/interfaces/PomodoroProfile';
 
 @Component({
@@ -7,6 +7,8 @@ import { PomodoroProfile } from 'src/interfaces/PomodoroProfile';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @Output() timerOn!: number;
+
   title = 'jomodoro';
   pomodoroProfiles: PomodoroProfile[] = [
     { name: "Work", color: "#0E1C36", mins: 25 },
@@ -18,9 +20,7 @@ export class AppComponent {
   // done in setProfile
   chosenProfile!: PomodoroProfile;
   secondsRemaining!: number;
-  displayedTime!: string;
-  timerOn = false;
-  timer!: ReturnType<typeof setInterval>;
+  
 
   constructor() {
     this.setProfile(this.pomodoroProfiles[0]);
@@ -28,32 +28,10 @@ export class AppComponent {
 
   setProfile(profile: PomodoroProfile) {
     this.chosenProfile = profile;
-    this.secondsRemaining = this.chosenProfile.mins * 60;
-    this.setDisplayedTime();
+    this.secondsRemaining = this.chosenProfile.mins * 60; // TODO: change this to set app-timer
   }
 
   addProfile() {
     this.pomodoroProfiles.push({name: 'Dummy', color: '#AD5334', mins: 10});
-  }
-
-  setDisplayedTime() {
-    const mins = Math.floor(this.secondsRemaining / 60);
-    this.displayedTime = `${mins}:${String(this.secondsRemaining % 60).padStart(2, '0')}`;
-  }
-
-  toggleTimer() {
-    this.timerOn = !this.timerOn;
-    if (this.timerOn) {
-      this.timer = setInterval(() => {
-        this.tick()
-      }, 1000);
-    } else {
-      clearInterval(this.timer)
-    }
-  }
-
-  tick() {
-    this.secondsRemaining -= 1;
-    this.setDisplayedTime();
   }
 }

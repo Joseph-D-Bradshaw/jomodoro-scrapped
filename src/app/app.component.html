@@ -2,11 +2,7 @@
   <app-nav></app-nav>
   <div id="chosen">
     <h1>Chosen Jomodoro</h1>
-    <div>
-      <h2>{{ chosenProfile.name }}</h2>
-      <h1>{{ displayedTime }}</h1>
-    </div>
-    <button (click)="toggleTimer()">{{ timerOn ? 'Stop' : 'Start' }}</button>
+    <app-timer [chosenProfile]="chosenProfile"></app-timer>
   </div>
 
   <hr>

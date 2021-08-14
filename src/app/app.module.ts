@@ -6,12 +6,14 @@ import { NavComponent } from './nav/nav.component';
 import { CardComponent } from './card/card.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TimerComponent } from './timer/timer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    CardComponent
+    CardComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

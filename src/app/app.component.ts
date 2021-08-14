@@ -20,6 +20,7 @@ export class AppComponent {
   secondsRemaining!: number;
   displayedTime!: string;
   timerOn = false;
+  timer!: ReturnType<typeof setInterval>;
 
   constructor() {
     this.setProfile(this.pomodoroProfiles[0]);
@@ -43,9 +44,11 @@ export class AppComponent {
   toggleTimer() {
     this.timerOn = !this.timerOn;
     if (this.timerOn) {
-      setInterval(() => {
+      this.timer = setInterval(() => {
         this.tick()
       }, 1000);
+    } else {
+      clearInterval(this.timer)
     }
   }
 
